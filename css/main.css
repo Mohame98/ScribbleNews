@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --blue-950: oklch(10% 0.02 250);
+  --blue-900: oklch(12% 0.03 250);
+  --blue-800: oklch(18% 0.04 250);
+  --blue-700: oklch(25% 0.06 250);
+  --blue-600: oklch(35% 0.08 250);
+  --blue-500: oklch(45% 0.10 250);
+  --blue-400: oklch(60% 0.12 250);
+  --blue-300: oklch(75% 0.10 250);
+  --blue-200: oklch(88% 0.06 250);
+  --blue-100: oklch(95% 0.02 250);
+
+  --color-light-gray: oklch(80% 0 0); 
+  --text-light: oklch(100% 0 0);
+  --text-dark: oklch(20% 0 0);
+
+  --space-sm: 0.8rem; 
+  --space-md: 1.6rem;     
+  --space-lg: 2.4rem;
+  --space-xl: 4.8rem;
+  --space-xxl: 7.2rem;
+
+  --radius-sm: 0.4rem;
+  --radius-md: 0.8rem;
+  --radius-lg: 1.6rem;
+  --radius-circle: 50%;
+
+  --font-sm: 1.4rem;
+  --font-base: 1.6rem;
+  --font-md: 2.4rem;
+  --font-lg: 3.2rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1250px;
+  width: 90%;
+}
+
+body{
+  background-color: var(--blue-950);
+  color: var(--text-light);
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: var(--font-base);
+}
+
+a{
+  text-decoration: none;
+  color: var(--color-light-gray);
+  transition: 0.4s;
+
+  &:hover {
+    color: var(--text-light);
+  }
+}
+
+ul{
+  list-style: none;
+}
+
+.logo{
+  color: var(--blue-200);
+
+  &:hover{
+    color: var(--blue-400);
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Merriweather", serif;
+  font-weight: 600;
+}
+
+hr{
+  margin-top: var(--space-xl);
+  border: none;
+  background-color: rgba(128, 128, 128, 0.3);
+  height: 1px;
+}

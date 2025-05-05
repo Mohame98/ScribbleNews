@@ -1,0 +1,56 @@
+.art-news-articles{
+
+  .left-col-title,
+  .right-col-title{
+    margin-bottom: var(--space-md);
+  }
+
+  .flex{
+    display: flex;
+    gap: var(--space-xl);
+  }
+
+  .left-col-featured
+  .featured-news{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .right-col-recent{
+    width: 53%;
+
+    .grid{
+      display: grid;
+      grid-template-columns: 
+        repeat(auto-fit, minmax(265px, 2fr));
+      gap: var(--space-lg);
+    }
+  }
+
+  .left-col-featured{
+    width: 47%;
+  }
+
+  .pagination{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg) 0;
+
+    .prev, 
+    .next{
+      background-color: var(--blue-500);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--blue-400);
+      color: var(--text-light);
+
+      &:hover{
+        background-color: var(--blue-400);
+        color: var(--text-light);
+      }      
+    }
+  }
+}
