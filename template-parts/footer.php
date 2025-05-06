@@ -1,7 +1,10 @@
     <footer>
       <div class="container">
         <div class="grid">
+        <div class="logo-container">
           <a class="logo" href="<?php echo home_url(); ?>"><h1>Scribble</h1></a>
+          <div class="hover-caption">Home</div>
+        </div>
           <div class="footer-col-one">
             <h3>Pages</h3>
             <nav>
@@ -42,32 +45,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script> 
-      function handleModal(){
-        const modalBtn = document.querySelector('.search-btn');
-        const dialog = document.querySelector('.search-modal');
-
-        modalBtn.addEventListener('click', function() {
-          dialog.showModal();
-        });
-
-        dialog.addEventListener('click', function(event){
-          if(event.target === dialog) {
-            dialog.close(); 
-          }   
-        });
-
-        dialog.addEventListener('toggle', function(event){
-          const isOpen = event.target.matches('dialog:open');
-          if (isOpen) {
-            document.body.classList.add('no-scroll');
-          } else {
-            document.body.classList.remove('no-scroll');
-          }
-        });
-      }
-      handleModal();
-
-
         // initialize aos
         // AOS.init({ duration: 1000, easing: "ease-in-out", once: true });
     </script>

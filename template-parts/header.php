@@ -23,7 +23,11 @@
   <nav class="main-nav">
     <div class="container">
       <div class="left-side-navigation">
-        <a class="logo" href="<?php echo home_url(); ?>"><h1>Scribble</h1></a>
+        <div class="logo-container">
+          <a class="logo" href="<?php echo home_url(); ?>"><h1>Scribble</h1></a>
+          <div class="hover-caption">Home</div>
+        </div>
+        
         <nav>
           <?php 
             $rules = array(
@@ -35,6 +39,19 @@
         </nav>
       </div>
       <div class="right-side-navigation">
+        <div class="search-container">
+          <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <div class="hover-caption">Search</div>
+          </button>
+
+
+          <dialog class="search-modal">
+            <div class="modal-nested-wrapper">
+              <?php get_search_form(); ?>
+            </div>
+          </dialog>
+        </div>
         <nav>
           <?php 
             $rules = array(
