@@ -1,6 +1,7 @@
 function handleModal(){
   const modalBtn = document.querySelector('.search-btn');
   const dialog = document.querySelector('.search-modal');
+  const modalWrapper = document.querySelector('.search-modal .modal-nested-wrapper');
 
   modalBtn.addEventListener('click', function() {
     dialog.showModal();
@@ -20,6 +21,7 @@ function handleModal(){
     } else {
       document.body.classList.remove('no-scroll');
       dialog.classList.remove("show");
+      modalWrapper.classList.remove("shake");
     }
   });
 }
@@ -49,7 +51,69 @@ document.addEventListener('click', function (e) {
       document.querySelector('#ajax-request').innerHTML = newPosts;
       document.querySelector('.pagination').innerHTML = newPagination;
 
-      window.history.pushState(null, '', link); // update URL
+      window.history.pushState(null, '', link);
     });
   }
 });
+
+function createNode(type, text, parentNode, className, href) {
+  let node = document.createElement(type);
+  if (text) node.appendChild(document.createTextNode(text));
+  if (className) node.className = className;
+  if (parentNode) parentNode.append(node);
+  if (type === "img") node.src = text;
+  if (href) node.href = href;
+  return node;
+}
+
+function appendSearchIcon(){
+  const searchIcon = createNode("i", null, null, "fa-solid fa-magnifying-glass");
+  const form = document.querySelector('.search-modal form');
+  form.append(searchIcon);
+}
+appendSearchIcon();
+
+function resetSearch() {
+  const searchInput = document.querySelector('#s');
+  const form = document.querySelector('.search-modal form');
+  if (!searchInput || !form) return;
+
+  const resetSearchBtn = createNode("i", null, null, "fa-solid fa-xmark");
+  function showOrHideResetButton() {
+    const value = searchInput.value.trim();
+    if (value) {
+      if (!form.contains(resetSearchBtn)) {
+        form.append(resetSearchBtn);
+        resetSearchBtn.addEventListener("click", function () {
+          searchInput.value = '';
+          searchInput.focus();
+          resetSearchBtn.remove();
+        }, { once: true });
+      }
+    } else {
+      if (form.contains(resetSearchBtn)) {
+        resetSearchBtn.remove();
+      }
+    }
+  }
+  showOrHideResetButton();
+  searchInput.addEventListener('input', showOrHideResetButton);
+}
+document.addEventListener("DOMContentLoaded", resetSearch);
+
+function handleSubmit(){
+  const form = document.querySelector('.search-modal form');
+  const input = document.querySelector('#s');
+  const modalWrapper = document.querySelector('.search-modal .modal-nested-wrapper');
+  
+  form.addEventListener("submit", function(e){
+    const value = input.value.trim();
+    if (value === "") {
+      e.preventDefault();
+      modalWrapper.classList.remove("shake"); 
+      void modalWrapper.offsetWidth;
+      modalWrapper.classList.add("shake");
+    }
+  })
+}
+handleSubmit();

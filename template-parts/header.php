@@ -45,9 +45,11 @@
             <div class="hover-caption">Search</div>
           </button>
 
+
           <dialog class="search-modal">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <?php get_search_form(); ?>
+            <div class="modal-nested-wrapper">
+              <?php get_search_form(); ?>
+            </div>
           </dialog>
         </div>
         <nav>
