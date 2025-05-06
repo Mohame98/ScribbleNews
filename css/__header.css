@@ -70,21 +70,17 @@
 
     form{
       position: relative;
-
-      .fa-xmark {
-        font-size: 15px;
+      .fa-circle-xmark {
+        font-size: 14px;
         position: absolute;
         top: 50%;
-        right: 90px;
+        right: 100px;
         transform: translate(-50%, -50%);
         transition: 0.4s; 
-        padding: 7px 9px;
-        border-radius: var(--radius-circle);
         cursor: pointer;
 
         &:hover{
-          color: red;
-          background-color: rgba(0, 0, 0, 0.4);
+          color: rgba(0, 0, 0, 0.4);
         }
       }
     }
@@ -101,7 +97,7 @@
       transform: translate(-50%, -50%);
       background-color: transparent;
       width: 30%;
-      min-width: 350px;
+      min-width: 450px;
       border: none;
       opacity: 0;
       transition: opacity 1s ease; 
@@ -162,6 +158,11 @@
       background-color: rgba(0, 0, 0, 0.5); 
       backdrop-filter: blur(3px); 
       cursor: pointer;   
+    }
+
+    #search-results{
+      position: absolute;
+      top: 3px;
     }
   }
 }

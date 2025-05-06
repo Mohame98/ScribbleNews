@@ -45,10 +45,10 @@
             <div class="hover-caption">Search</div>
           </button>
 
-
           <dialog class="search-modal">
             <div class="modal-nested-wrapper">
               <?php get_search_form(); ?>
+              <div id="search-results"></div>
             </div>
           </dialog>
         </div>
@@ -61,16 +61,6 @@
             wp_nav_menu($rules);
           ?>
         </nav>
-        <div class="search-container">
-          <button class="search-btn">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-
-          <dialog class="search-modal">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <?php get_search_form(); ?>
-          </dialog>
-        </div>
       </div>
     </div>
   </nav>
