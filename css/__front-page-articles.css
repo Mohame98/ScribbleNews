@@ -31,26 +31,4 @@
   .left-col-featured{
     width: 47%;
   }
-
-  .pagination{
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap: var(--space-md);
-    padding: var(--space-lg) 0;
-
-    .prev, 
-    .next{
-      background-color: var(--blue-500);
-      padding: var(--space-sm) var(--space-md);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--blue-400);
-      color: var(--text-light);
-
-      &:hover{
-        background-color: var(--blue-400);
-        color: var(--text-light);
-      }      
-    }
-  }
 }

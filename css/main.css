@@ -27,10 +27,12 @@
   --radius-lg: 1.6rem;
   --radius-circle: 50%;
 
+  --font-xs: 1.2rem;
   --font-sm: 1.4rem;
   --font-base: 1.6rem;
-  --font-md: 2.4rem;
+  --font-md: 2rem;
   --font-lg: 3.2rem;
+  --font-xl: 4.4rem;
 }
 
 * {
@@ -43,10 +45,19 @@ html {
   font-size: 62.5%;
 }
 
+.no-scroll{
+  overflow: hidden;
+  height: 100%;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1250px;
   width: 90%;
+}
+
+.narrow{
+  max-width: 800px;
 }
 
 body{
@@ -55,6 +66,7 @@ body{
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: var(--font-base);
+  line-height: 1.5;
 }
 
 a{
@@ -71,11 +83,22 @@ ul{
   list-style: none;
 }
 
-.logo{
-  color: var(--blue-200);
+.logo-container{
+  width: fit-content;
+  position: relative;
+
+  .logo{
+    color: var(--blue-200);
+
+    &:hover{
+      color: var(--blue-400);
+    }
+  }
 
   &:hover{
-    color: var(--blue-400);
+    .hover-caption{
+      opacity: 1;
+    }
   }
 }
 
@@ -84,9 +107,63 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
+p{
+  font-weight: 300;
+}
+
 hr{
   margin-top: var(--space-xl);
   border: none;
   background-color: rgba(128, 128, 128, 0.3);
   height: 1px;
+}
+
+.pagination,
+.single-pagination{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-xl) 0;
+
+  .prev, 
+  .next{
+    background-color: var(--blue-500);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--blue-400);
+    color: var(--text-light);
+
+    &:hover{
+      background-color: var(--blue-400);
+      color: var(--text-light);
+    }      
+  }
+}
+
+.navigation.pagination{
+  padding: 0;
+}
+
+.hover-caption {
+  opacity: 0;
+  position: absolute;
+  font-size: 12px;
+  font-weight: 700;
+  top: 60px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(128, 128, 128, 0.2);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  text-transform: capitalize;
+  white-space: nowrap;
+  color: #fff;
+  text-align: center;
+  padding: var(--space-sm);
+  transition: opacity 0.4s ease;
+}
+
+abbr[title] {
+  text-decoration: none;
 }

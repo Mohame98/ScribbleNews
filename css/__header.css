@@ -27,6 +27,10 @@
   }
 
   .right-side-navigation{
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+
     .menu-item-40{
       a{
         background-color: var(--blue-500);
@@ -40,6 +44,95 @@
           color: var(--text-light);
         }
       } 
+    }
+  }
+
+  .search-container{
+    .search-btn{
+      font-size: var(--space-base);
+      background-color: transparent;
+      color: var(--text-light);
+      padding: var(--space-sm);
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: 0.4s;
+      position: relative;
+
+      &:hover{
+        background-color: rgba(188, 188, 188, 0.1);
+        /* color: var(--text-dark); */
+        .hover-caption{
+          opacity: 1;
+        }
+      }
+    }
+
+    form > div{
+      display: flex;
+      gap: var(--space-sm);
+    }
+
+    .search-modal{
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      width: 40%;
+      min-width: 350px;
+      border: none;
+      opacity: 0;
+      transition: opacity 1s ease; 
+      position: relative;
+
+      i{
+        position: absolute;
+        top: 14px;
+        left: 12px;
+      }
+
+      #s{
+        padding: 15px 20px;
+        background-color: var(--text-light);
+        border-radius: var(--radius-lg);
+        width: 100%;
+        padding-left: 40px;
+        border: none;
+        outline: none;
+      }
+
+      #s:focus{
+        border: none;
+        outline: none;
+      }
+
+      #searchsubmit{
+        padding: 15px 20px;
+        background-color: var(--blue-200);
+        color: var(--text-dark);
+        border: none;
+        font-weight: bold;
+        font-size: var(--font-sm);
+        border-radius: var(--radius-lg);
+        transition: 0.4s;
+        cursor: pointer;
+
+        &:hover{
+          background-color: var(--blue-400);
+          color: var(--text-light);
+        }
+      }
+    }
+
+    .search-modal.show {
+      opacity: 1;
+    }
+
+    .search-modal::backdrop {
+      background-color: rgba(0, 0, 0, 0.4); 
+      backdrop-filter: blur(3px); 
+      cursor: pointer;   
     }
   }
 }

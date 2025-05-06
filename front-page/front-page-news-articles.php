@@ -1,3 +1,10 @@
+<?php
+if (defined('DOING_AJAX') && DOING_AJAX) {
+  // Return only the markup needed
+  get_template_part('front-page-news-articles/ajax-request'); // this includes the loop
+  exit;
+}
+?>
 <section class="art-news-articles">
   <div class="container">
     <div class="flex">
@@ -33,14 +40,14 @@
         <?php 
           $paged_recent = isset($_GET['recent_page']) ? max(1, intval($_GET['recent_page'])) : 1;
           $recentNewsPosts = new WP_Query(array(
-            'posts_per_page' => 3,
+            'posts_per_page' => 6,
             'post_type' => 'post',
             'orderby' => 'date',
             'order' => 'DESC',
             'paged' => $paged_recent
           ));
         ?>
-        <div class="grid">
+        <div class="grid" id="ajax-request">
           <?php while($recentNewsPosts->have_posts()) {
           $recentNewsPosts->the_post();
           ?>

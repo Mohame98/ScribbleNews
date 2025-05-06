@@ -1,7 +1,10 @@
     <footer>
       <div class="container">
         <div class="grid">
+        <div class="logo-container">
           <a class="logo" href="<?php echo home_url(); ?>"><h1>Scribble</h1></a>
+          <div class="hover-caption">Home</div>
+        </div>
           <div class="footer-col-one">
             <h3>Pages</h3>
             <nav>
@@ -41,7 +44,7 @@
     <!-- aos js -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
-    <script>  
+    <script> 
         // initialize aos
         // AOS.init({ duration: 1000, easing: "ease-in-out", once: true });
     </script>

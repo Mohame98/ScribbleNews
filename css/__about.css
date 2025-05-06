@@ -1,0 +1,41 @@
+.about{
+
+  .about-page-title{
+    .title{
+      font-size: var(--font-xl);
+      padding: var(--space-lg) 0;
+    }
+  }
+
+  .about-page-imgs{
+    display: flex;
+    gap: var(--space-lg);
+
+    .img{
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--radius-md);
+      max-height: 750px;
+    }
+  }
+
+  .about-page-content{
+    padding-top: var(--space-lg);
+
+    .text-editor-content{
+
+      h3{
+        font-size: var(--font-lg);
+        padding-bottom: var(--space-lg);
+      }
+  
+      p{
+        font-size: var(--font-md);
+        padding-bottom: var(--space-xl);
+        color: var(--color-light-gray);
+      }
+    }
+  }
+}

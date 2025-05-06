@@ -1,0 +1,16 @@
+.category-news-posts{
+  padding: var(--space-xl) 0;
+
+  h1{
+    font-size: var(--font-lg);
+  }
+
+  .grid{
+    display: grid;
+    grid-template-columns: 
+      repeat(auto-fit, minmax(275px, 3fr));
+    gap: var(--space-lg);
+
+    padding: var(--space-lg) 0;
+  }
+}
