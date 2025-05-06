@@ -5,11 +5,11 @@
     <section class="category-news-posts">
       <div class="container">
       <h1><?php single_cat_title(); ?></h1>
-        <?php while (have_posts()) : the_post(); ?>
-        <div class="news-card">
-          <?php get_template_part('template-parts/news-cards/news-cards'); ?>
-        </div>
-        <?php endwhile; ?>
+      <?php while (have_posts()) : the_post(); ?>
+      <div class="news-card">
+      <?php get_template_part('template-parts/news-cards/news-cards'); ?>
+      </div>
+      <?php endwhile; ?>
       </div>
     </section>
 

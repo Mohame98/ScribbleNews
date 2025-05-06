@@ -43,8 +43,17 @@
             );
             wp_nav_menu($rules);
           ?>
-          <?php get_search_form(); ?>
         </nav>
+        <div class="search-container">
+          <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+
+          <dialog class="search-modal">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <?php get_search_form(); ?>
+          </dialog>
+        </div>
       </div>
     </div>
   </nav>
