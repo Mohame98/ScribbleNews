@@ -30,7 +30,7 @@
   --font-xs: 1.2rem;
   --font-sm: 1.4rem;
   --font-base: 1.6rem;
-  --font-md: 2rem;
+  --font-md: 2.4rem;
   --font-lg: 3.2rem;
   --font-xl: 4.4rem;
 }
@@ -142,6 +142,19 @@ hr{
 
 abbr[title] {
   text-decoration: none;
+}
+
+.blocker {
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+  z-index: 5;
+  display: none;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(3px); 
+  cursor: pointer;
 }
 
 /* responsive */

@@ -58,3 +58,34 @@
     padding: var(--space-lg) 0;
   }
 }
+
+@media (max-width: 800px) {
+  .single-news-img{
+    padding: var(--space-lg) 0;
+  }
+
+  .single-news-content{
+    .text-editor-content{
+      h4{
+        font-size: var(--font-md);
+        padding-bottom: var(--space-md);
+      }
+  
+      p{
+        font-size: var(--font-base);
+        padding-bottom: var(--space-lg);
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .single-news-title{
+    .card-content{
+      .title{
+        font-size: var(--font-md);
+        padding: var(--space-sm) 0;
+      }
+    }
+  }
+}

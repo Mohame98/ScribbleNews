@@ -14,7 +14,7 @@
     gap: var(--space-lg);
     border-radius: var(--radius-md);
 
-    padding: var(--space-xxl);
+    padding: var(--space-xxl) 0;
     background-color: var(--blue-500);
     text-align: center;
   }
@@ -25,7 +25,7 @@
       border: none;
       border-radius: var(--radius-md);
       padding: var(--space-md);
-      width: 35rem;
+      width: 60%;
       color: var(--text-dark);
       transition: 0.4s;
     }
@@ -57,7 +57,7 @@
 /* newsletter subscription page */
 .newsletter-subscription-page{
   background-color: var(--blue-500);
-  padding: var(--space-lg);
+  padding: var(--space-lg) 0;
 
   h2{
     font-size: var(--font-xl);
@@ -71,8 +71,34 @@
   }
 
   .container{
-    border-radius: none;
-    padding: none;
     background-color: transparent;
+  }
+}
+
+@media (max-width: 800px) {
+  .newsletter-subscription-page{
+    padding: var(--space-md);
+    
+    p{
+      font-size: var(--font-md);
+      max-width: 55rem;
+      margin: 0 auto;
+    }
+  
+  }
+}
+
+@media (max-width: 600px) {
+  .newsletter,
+  .newsletter-subscription-page{
+    h2{
+      font-size: var(--font-lg);
+      max-width: 100%;
+    }
+  
+    p{
+      font-size: var(--font-base);
+      max-width: 100%;
+    }
   }
 }

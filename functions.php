@@ -32,31 +32,40 @@ add_action('wp_ajax_live_search', 'my_live_search');
 add_action('wp_ajax_nopriv_live_search', 'my_live_search');
 
 function my_live_search() {
-    $keyword = sanitize_text_field($_POST['keyword']);
-    $args = [
-        'post_type' => 'post',
-        'posts_per_page' => 5,
-        's' => $keyword,
-    ];
-    $query = new WP_Query($args);
+  $keyword = sanitize_text_field($_POST['keyword']);
+  $args = [
+    'post_type' => 'post',
+    'posts_per_page' => 5,
+    's' => '',
+  ];
 
-    if ($query->have_posts()) {
-        ob_start();
-        echo '<ul class="ajax-search-results">';
-        while ($query->have_posts()) {
-            $query->the_post();
-            echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
-        }
-        echo '</ul>';
-        wp_reset_postdata();
-        wp_send_json_success(ob_get_clean());
-    } else {
-        wp_send_json_success('<p>No results found.</p>');
+  add_filter('posts_where', function($where) use ($keyword) {
+    global $wpdb;
+    $escaped = esc_sql($wpdb->esc_like($keyword));
+    $where .= " AND {$wpdb->posts}.post_title LIKE '%$escaped%'";
+    return $where;
+  });
+
+  $query = new WP_Query($args);
+
+  if ($query->have_posts()) {
+    ob_start();
+    echo '<ul class="ajax-search-results">';
+    while ($query->have_posts()) {
+      $query->the_post();
+      $title = esc_html(get_the_title());
+      $url   = esc_url(get_permalink());
+      echo "<li><a href=\"{$url}\">{$title}</a></li>";
     }
+    echo '</ul>';
+    wp_reset_postdata();
+    wp_send_json_success(ob_get_clean());
+  } else {
+    wp_send_json_success('<p>No results found.</p>');
+  }
   wp_die();
 }
 
- 
 // for featured image
 function enable_featured_img(){
   add_theme_support('post-thumbnails');

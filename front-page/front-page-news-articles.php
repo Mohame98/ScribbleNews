@@ -55,7 +55,6 @@ if (defined('DOING_AJAX') && DOING_AJAX) {
           </div>
           <?php } ?>
         </div>
-    
         <?php wp_reset_postdata(); ?>
       </div>
     </div>

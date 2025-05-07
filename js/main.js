@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
     clearTimeout(debounceTimer);
     const query = this.value.trim();
 
-    if (query.length < 2) {
+    if (query.length < 1) {
       if (resultsContainer) {
         resultsContainer.remove();
         resultsContainer = null;
@@ -176,14 +176,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function handleNav(){
+  const blocker = document.querySelector('.blocker')
   const popover = document.querySelector(".popover");
   popover.addEventListener("toggle", (event) => {
     const isOpen = event.target.matches(":popover-open");
     isOpen
-    ? (document.body.classList.add('no-scroll'))
-    : (document.body.classList.remove('no-scroll'))
+    ? (document.body.classList.add('no-scroll'), blocker.style.display = 'block')
+    : (document.body.classList.remove('no-scroll'), blocker.style.display = 'none')
   });
-
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 800) popover.hidePopover();
   });

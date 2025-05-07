@@ -20,6 +20,7 @@
   <?php wp_head(); ?>
 </head>
 <body>
+  <div class='blocker'></div>
   <nav class="main-nav">
     <div class="container">
       <div class="left-side-navigation">
