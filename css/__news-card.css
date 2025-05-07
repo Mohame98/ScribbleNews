@@ -36,6 +36,7 @@
     }
   }
 }
+
 .news-card-description{
   .category-and-date{
     color: var(--blue-200);
@@ -54,6 +55,22 @@
       font-size: var(--font-base);
       color: var(--text-light);
       margin-bottom: var(--space-sm);
+    }
+  }
+}
+
+/* responsive */
+@media (max-width: 900px) {
+
+  .featured-news .news-card{
+    .card-content{
+      .title{
+        font-size: var(--font-base);
+      }
+
+      .post-description{
+        font-size: var(--font-sm);
+      }
     }
   }
 }

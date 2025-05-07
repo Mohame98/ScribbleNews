@@ -1,9 +1,13 @@
-.category-news-posts{
+.search-results-posts{
   padding: var(--space-xl) 0;
 
-  h1{
-    font-size: var(--font-lg);
-  }
+    h1{
+      font-size: var(--font-lg);
+
+      span{
+        text-transform: capitalize;
+      }
+    }
 
   .grid{
     display: grid;

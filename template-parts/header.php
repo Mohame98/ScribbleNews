@@ -23,12 +23,10 @@
   <nav class="main-nav">
     <div class="container">
       <div class="left-side-navigation">
-        <div class="logo-container">
+        <abbr title="ScribbleNews">
           <a class="logo" href="<?php echo home_url(); ?>"><h1>Scribble</h1></a>
-          <div class="hover-caption">Home</div>
-        </div>
-        
-        <nav>
+        </abbr>
+        <nav class="wp-desktop-nav">
           <?php 
             $rules = array(
               'theme_location' => 'header-menu-left',
@@ -40,19 +38,19 @@
       </div>
       <div class="right-side-navigation">
         <div class="search-container">
-          <button class="search-btn">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <div class="hover-caption">Search</div>
-          </button>
-
+          <abbr title="Search">
+            <button class="search-btn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </abbr>
+          
           <dialog class="search-modal">
             <div class="modal-nested-wrapper">
-              <?php get_search_form(); ?>
-              <div id="search-results"></div>
+            <?php get_search_form(); ?>
             </div>
           </dialog>
         </div>
-        <nav>
+        <nav class="wp-desktop-nav">
           <?php 
             $rules = array(
               'theme_location' => 'header-menu-right',
@@ -61,6 +59,35 @@
             wp_nav_menu($rules);
           ?>
         </nav>
+          <abbr title="Menu">
+            <button class="mobile-menu-btn" popovertarget="mobile-nav" popovertargetaction="toggle-mobile-nav">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </abbr>
+          
+          <nav class="mobile-nav popover" id="mobile-nav" popover>
+            <div class="top-menu">
+              <?php 
+                $rules = array(
+                  'theme_location' => 'header-menu-left',
+                  'menu_class' => 'menu left-menu',
+                );
+                wp_nav_menu($rules);
+              ?>
+            </div>
+            <hr>
+            <div class="bottom-menu">
+              <?php 
+                $rules = array(
+                  'theme_location' => 'header-menu-right',
+                  'menu_class' => 'menu right-menu',
+                );
+                wp_nav_menu($rules);
+              ?>
+            </div>
+          </nav>
+        </div>
       </div>
     </div>
   </nav>
+  <i class="fa-solid fa-xmark"></i>

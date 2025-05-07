@@ -47,7 +47,7 @@
 
 .related-news-blogs{
   background-color: rgba(188, 188, 188, 0.1);
-  padding: var(--space-xl);
+  padding: var(--space-xl) 0;
 
   .grid{
     display: grid;

@@ -1,7 +1,6 @@
 <?php
 if (defined('DOING_AJAX') && DOING_AJAX) {
-  // Return only the markup needed
-  get_template_part('front-page-news-articles/ajax-request'); // this includes the loop
+  get_template_part('front-page-news-articles/ajax-request');
   exit;
 }
 ?>
@@ -23,7 +22,7 @@ if (defined('DOING_AJAX') && DOING_AJAX) {
           ));
         ?>
         <div class="featured-news">
-           <?php while($featuredNewsPosts->have_posts()) {
+          <?php while($featuredNewsPosts->have_posts()) {
           $featuredNewsPosts->the_post();
           ?>
           <div class="news-card">

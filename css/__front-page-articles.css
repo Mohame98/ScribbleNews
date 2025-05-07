@@ -1,5 +1,4 @@
 .art-news-articles{
-
   .left-col-title,
   .right-col-title{
     margin-bottom: var(--space-md);
@@ -14,7 +13,7 @@
   .featured-news{
     display: flex;
     flex-direction: column;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
   }
 
   .right-col-recent{
@@ -30,5 +29,22 @@
 
   .left-col-featured{
     width: 47%;
+  }
+}
+
+/* responsive */
+@media (max-width: 800px) {
+  .art-news-articles{
+    .flex{
+      flex-direction: column;
+    }
+  
+    .right-col-recent{
+      width: 100%;
+    }
+  
+    .left-col-featured{
+      width: 100%;
+    }
   }
 }

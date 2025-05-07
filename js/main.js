@@ -28,7 +28,9 @@ function handleModal(){
 handleModal();
 
 document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('s').placeholder = 'Search...';
+  const input = document.querySelector('#s')
+  input.placeholder = 'Search...';
+  input.autocomplete = "off";
 });
 
 // ajax pagination
@@ -88,7 +90,9 @@ function resetSearch() {
         resetSearchBtn.addEventListener("click", function () {
           searchInput.value = '';
           searchInput.focus();
-          resetSearchBtn.remove();
+          if (resetSearchBtn) resetSearchBtn.remove();
+          const results = document.querySelector('.search-results')
+          if (results) results.remove();
         }, { once: true });
       }
     } else {
@@ -122,15 +126,19 @@ handleSubmit();
 // ajax search
 document.addEventListener('DOMContentLoaded', function () {
   const searchInput = document.querySelector('#s');
-  const resultsContainer = document.querySelector('#search-results');
+  const modalWrapper = document.querySelector('.search-modal');
   let debounceTimer;
+  let resultsContainer = null;
 
   searchInput.addEventListener('input', function () {
     clearTimeout(debounceTimer);
     const query = this.value.trim();
 
     if (query.length < 2) {
-      resultsContainer.innerHTML = '';
+      if (resultsContainer) {
+        resultsContainer.remove();
+        resultsContainer = null;
+      }
       return;
     }
 
@@ -147,16 +155,39 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .then(response => response.json())
       .then(data => {
-        if (data.success) {
+        if (resultsContainer) {
+          resultsContainer.remove();
+          resultsContainer = null;
+        }
+
+        if (data.success && data.data.trim()) {
+          resultsContainer = createNode("div", null, modalWrapper, "search-results");
           resultsContainer.innerHTML = data.data;
-        } else {
-          resultsContainer.innerHTML = '<p>Error loading results.</p>';
-          }
-        })
+        }
+      })
       .catch(error => {
         console.error('AJAX search error:', error);
+        if (resultsContainer) resultsContainer.remove();
+        resultsContainer = createNode("div", null, modalWrapper, "search-results");
         resultsContainer.innerHTML = '<p>Something went wrong.</p>';
       });
     }, 300);
   });
 });
+
+function handleNav(){
+  const popover = document.querySelector(".popover");
+  popover.addEventListener("toggle", (event) => {
+    const isOpen = event.target.matches(":popover-open");
+    isOpen
+    ? (document.body.classList.add('no-scroll'))
+    : (document.body.classList.remove('no-scroll'))
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 800) popover.hidePopover();
+  });
+}
+handleNav();
+
+

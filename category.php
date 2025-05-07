@@ -1,6 +1,5 @@
 <?php get_template_part('template-parts/header'); ?>
-
-<div class="category-page">
+<main class="category-page">
   <?php if (have_posts()) : ?>
     <section class="category-news-posts">
       <div class="container">
@@ -17,10 +16,9 @@
         </div>
       </div>
     </section>
-    
   <?php else : ?>
     <p>No posts found in this category.</p>
   <?php endif; ?>
-</div>
+</main>
 <?php get_template_part('/template-parts/newsletter'); ?>
 <?php get_template_part('template-parts/footer'); ?>
