@@ -46,29 +46,29 @@ if (defined('DOING_AJAX') && DOING_AJAX) {
             'paged' => $paged_recent
           ));
         ?>
-        <div class="grid" id="ajax-request">
-          <?php while($recentNewsPosts->have_posts()) {
-          $recentNewsPosts->the_post();
-          ?>
-          <div class="news-card">
-          <?php get_template_part('template-parts/news-cards/news-cards'); ?>
+        <?php if ($allArticles->have_posts()) : ?>
+          <div class="grid" id="ajax-request">
+            <?php while($recentNewsPosts->have_posts()) {
+            $recentNewsPosts->the_post();
+            ?>
+            <div class="news-card">
+            <?php get_template_part('template-parts/news-cards/news-cards'); ?>
+            </div>
+            <?php } ?>
           </div>
-          <?php } ?>
+          <?php wp_reset_postdata(); ?>
+          <div class="pagination">
+          <?php 
+            echo paginate_links(array(
+              'total' => $recentNewsPosts->max_num_pages,
+              'current' => $paged_recent,
+              'format' => '?recent_page=%#%',
+              'prev_text' => __('« Prev'),
+              'next_text' => __('Next »')
+            )); 
+          ?>
         </div>
-        <?php wp_reset_postdata(); ?>
       </div>
-    </div>
-
-    <div class="pagination">
-      <?php 
-        echo paginate_links(array(
-          'total' => $recentNewsPosts->max_num_pages,
-          'current' => $paged_recent,
-          'format' => '?recent_page=%#%',
-          'prev_text' => __('« Prev'),
-          'next_text' => __('Next »')
-        )); 
-      ?>
     </div>
   </div>
 </section>

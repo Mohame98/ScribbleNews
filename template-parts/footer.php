@@ -39,6 +39,9 @@
           </ul>
         </div>
       </div>
+      <hr>
+      <div class="footer-end">
+				<a href="https://digitalportfolio.host" target="_blank">Made By Mohame</a>			
       </div>
     </div>
   </footer>

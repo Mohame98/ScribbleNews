@@ -24,6 +24,7 @@ function scribblenews_enqueue_assets() {
   wp_enqueue_style('categories-style', get_template_directory_uri() . '/css/__categories.css');
   wp_enqueue_style('about-style', get_template_directory_uri() . '/css/__about.css');
   wp_enqueue_style('search-style', get_template_directory_uri() . '/css/__search.css');
+  wp_enqueue_style('all-articles-style', get_template_directory_uri() . '/css/__all-articles.css');
 }
 add_action('wp_enqueue_scripts', 'scribblenews_enqueue_assets');
 

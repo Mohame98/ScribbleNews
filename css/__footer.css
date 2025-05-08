@@ -18,4 +18,8 @@ footer{
     flex-direction: column;
     gap: var(--space-md)
   }
+
+  .footer-end{
+    margin-top: var(--space-xl);
+  }
 }
