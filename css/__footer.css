@@ -20,6 +20,6 @@ footer{
   }
 
   .footer-end{
-    margin-top: var(--space-xl);
+    margin-top: var(--space-lg);
   }
 }

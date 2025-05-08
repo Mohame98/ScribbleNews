@@ -60,12 +60,11 @@
             wp_nav_menu($rules);
           ?>
         </nav>
-          <abbr title="Menu">
-            <button class="mobile-menu-btn" popovertarget="mobile-nav" popovertargetaction="toggle-mobile-nav">
+          <button class="mobile-menu-btn" popovertarget="mobile-nav" popovertargetaction="toggle-mobile-nav">
+            <abbr title="Menu">
               <i class="fa-solid fa-bars"></i>
-            </button>
-          </abbr>
-          
+            </abbr>
+          </button>
           <nav class="mobile-nav popover" id="mobile-nav" popover>
             <div class="top-menu">
               <?php 

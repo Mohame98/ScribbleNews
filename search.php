@@ -4,7 +4,7 @@
     <section class="search-results-posts">
       <div class="container">
         <h1 class="search-title">
-            Search Results for : <span><?php echo get_search_query(); ?></span>
+          Search Results for : <span><?php echo get_search_query(); ?></span>
         </h1>
         <div class="grid" id="ajax-request">
           <?php while (have_posts()) : the_post(); ?>
@@ -13,7 +13,7 @@
           </div>
           <?php endwhile; ?>
         </div>
-        <div class="pagination">
+        <div class="pagination ajax">
         <?php the_posts_pagination(); ?>
         </div>
       </div>

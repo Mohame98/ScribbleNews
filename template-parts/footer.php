@@ -41,7 +41,7 @@
       </div>
       <hr>
       <div class="footer-end">
-				<a href="https://digitalportfolio.host" target="_blank">Made By Mohame</a>			
+				<a href="https://digitalportfolio.host" target="_blank">Made By Mohame</a> • © <span class="year"></span>			
       </div>
     </div>
   </footer>

@@ -136,6 +136,10 @@ hr{
   }
 }
 
+.single-pagination{
+  padding: var(--space-xl);
+}
+
 .navigation.pagination{
   padding: 0;
 }

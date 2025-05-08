@@ -52,9 +52,8 @@
   .grid{
     display: grid;
     grid-template-columns: 
-      repeat(auto-fit, minmax(275px, 3fr));
+      repeat(auto-fill, minmax(275px, 3fr));
     gap: var(--space-lg);
-
     padding: var(--space-lg) 0;
   }
 }

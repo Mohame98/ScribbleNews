@@ -11,7 +11,7 @@
           </div>
           <?php endwhile; ?>
         </div>
-        <div class="pagination">
+        <div class="pagination ajax">
         <?php the_posts_pagination(); ?>
         </div>
       </div>

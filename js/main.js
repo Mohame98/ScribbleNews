@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // ajax pagination
 document.addEventListener('click', function (e) {
-  if (e.target.closest('.pagination a')) {
+  if (e.target.closest('.pagination.ajax a')) {
     e.preventDefault();
     const link = e.target.closest('a').getAttribute('href');
 
@@ -49,11 +49,9 @@ document.addEventListener('click', function (e) {
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, 'text/html');
       const newPosts = doc.querySelector('#ajax-request').innerHTML;
-      const newPagination = doc.querySelector('.pagination').innerHTML;
-
+      const newPagination = doc.querySelector('.pagination.ajax').innerHTML;
       document.querySelector('#ajax-request').innerHTML = newPosts;
-      document.querySelector('.pagination').innerHTML = newPagination;
-
+      document.querySelector('.pagination.ajax').innerHTML = newPagination;
       window.history.pushState(null, '', link);
     });
   }
@@ -129,11 +127,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const modalWrapper = document.querySelector('.search-modal');
   let debounceTimer;
   let resultsContainer = null;
-
   searchInput.addEventListener('input', function () {
     clearTimeout(debounceTimer);
     const query = this.value.trim();
-
     if (query.length < 1) {
       if (resultsContainer) {
         resultsContainer.remove();
@@ -176,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function handleNav(){
-  const blocker = document.querySelector('.blocker')
+  const blocker = document.querySelector('.blocker');
   const popover = document.querySelector(".popover");
   popover.addEventListener("toggle", (event) => {
     const isOpen = event.target.matches(":popover-open");
@@ -190,4 +186,4 @@ function handleNav(){
 }
 handleNav();
 
-
+document.querySelector(".year").textContent = new Date().getFullYear();

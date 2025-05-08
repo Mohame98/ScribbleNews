@@ -1,9 +1,3 @@
-<?php
-if (defined('DOING_AJAX') && DOING_AJAX) {
-  get_template_part('front-page-news-articles/ajax-request');
-  exit;
-}
-?>
 <section class="art-news-articles">
   <div class="container">
     <div class="flex">
@@ -33,9 +27,8 @@ if (defined('DOING_AJAX') && DOING_AJAX) {
       </div>
       <div class="right-col-recent">
         <div class="right-col-title">
-          <h3>Recent</h3>
+          <h3>Most Recent</h3>
         </div>
-        
         <?php 
           $paged_recent = isset($_GET['recent_page']) ? max(1, intval($_GET['recent_page'])) : 1;
           $recentNewsPosts = new WP_Query(array(
@@ -46,27 +39,26 @@ if (defined('DOING_AJAX') && DOING_AJAX) {
             'paged' => $paged_recent
           ));
         ?>
-        <?php if ($allArticles->have_posts()) : ?>
-          <div class="grid" id="ajax-request">
-            <?php while($recentNewsPosts->have_posts()) {
-            $recentNewsPosts->the_post();
-            ?>
-            <div class="news-card">
-            <?php get_template_part('template-parts/news-cards/news-cards'); ?>
-            </div>
-            <?php } ?>
-          </div>
-          <?php wp_reset_postdata(); ?>
-          <div class="pagination">
-          <?php 
-            echo paginate_links(array(
-              'total' => $recentNewsPosts->max_num_pages,
-              'current' => $paged_recent,
-              'format' => '?recent_page=%#%',
-              'prev_text' => __('« Prev'),
-              'next_text' => __('Next »')
-            )); 
+        <div class="grid">
+          <?php while($recentNewsPosts->have_posts()) {
+          $recentNewsPosts->the_post();
           ?>
+          <div class="news-card">
+          <?php get_template_part('template-parts/news-cards/news-cards'); ?>
+          </div>
+          <?php } ?>
+        </div>
+        <?php wp_reset_postdata(); ?>
+        <div class="pagination">
+        <?php 
+          echo paginate_links(array(
+            'total' => $recentNewsPosts->max_num_pages,
+            'current' => $paged_recent,
+            'format' => '?recent_page=%#%',
+            'prev_text' => __('« Prev'),
+            'next_text' => __('Next »')
+          )); 
+        ?>
         </div>
       </div>
     </div>
