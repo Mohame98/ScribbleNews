@@ -299,6 +299,7 @@ header{
     .search-container{
       .search-modal{
         width: 90%;
+        min-width: auto;
       }
     }
   }
