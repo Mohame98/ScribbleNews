@@ -17,7 +17,7 @@
       </div>
     </section>
   <?php else : ?>
-    <p>No posts found in this category.</p>
+  <p>No posts found in this category.</p>
   <?php endif; ?>
 </main>
 <?php get_template_part('/template-parts/newsletter'); ?>

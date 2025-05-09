@@ -39,12 +39,10 @@
       </div>
       <div class="right-side-navigation">
         <div class="search-container">
-          <abbr title="Search">
-            <button class="search-btn">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </abbr>
-          
+          <button class="search-btn" title="Search" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+    
           <dialog class="search-modal">
             <div class="modal-nested-wrapper">
             <?php get_search_form(); ?>
@@ -60,10 +58,8 @@
             wp_nav_menu($rules);
           ?>
         </nav>
-          <button class="mobile-menu-btn" popovertarget="mobile-nav" popovertargetaction="toggle-mobile-nav">
-            <abbr title="Menu">
-              <i class="fa-solid fa-bars"></i>
-            </abbr>
+          <button class="mobile-menu-btn" popovertarget="mobile-nav" popovertargetaction="toggle-mobile-nav" aria-label="menu" title="Menu">
+            <i class="fa-solid fa-bars"></i>
           </button>
           <nav class="mobile-nav popover" id="mobile-nav" popover>
             <div class="top-menu">
@@ -90,4 +86,3 @@
       </div>
     </div>
   </nav>
-  <i class="fa-solid fa-xmark"></i>

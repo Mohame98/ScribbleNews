@@ -57,10 +57,22 @@ document.addEventListener('click', function (e) {
   }
 });
 
-function createNode(type, text, parentNode, className, href) {
+function createsubmit(){
+  const submitBtn = createNode("button", null, null, null, "searchsubmit1");
+  const searchIcon = createNode("i", null, null, "fa-solid fa-magnifying-glass");
+  submitBtn.append(searchIcon);
+  submitBtn.type = 'submit'
+  submitBtn.title ='Submit Search'
+  submitBtn.setAttribute('aria-label', 'Submit Search');
+  return submitBtn
+}
+createsubmit();
+
+function createNode(type, text, parentNode, className, id, href) {
   let node = document.createElement(type);
   if (text) node.appendChild(document.createTextNode(text));
   if (className) node.className = className;
+  if (id) node.id = id;
   if (parentNode) parentNode.append(node);
   if (type === "img") node.src = text;
   if (href) node.href = href;
@@ -68,7 +80,7 @@ function createNode(type, text, parentNode, className, href) {
 }
 
 function appendSearchIcon(){
-  const searchIcon = createNode("i", null, null, "fa-solid fa-magnifying-glass");
+  const searchIcon = createNode("i", null, null, "fa-solid fa-magnifying-glass outer");
   const form = document.querySelector('.search-modal form');
   form.append(searchIcon);
 }
@@ -77,18 +89,25 @@ appendSearchIcon();
 function resetSearch() {
   const searchInput = document.querySelector('#s');
   const form = document.querySelector('.search-modal form');
+  const container = document.querySelector('.search-modal form > div')
   if (!searchInput || !form) return;
 
-  const resetSearchBtn = createNode("i", null, null, "fa-solid fa-circle-xmark");
+  const resetSearchBtn = createNode("i", null, null, "fa-solid fa-xmark");
+  resetSearchBtn.title ='Reset Search'
+  resetSearchBtn.setAttribute('aria-label', 'Reset Search');
+
+  const submitBtn = createsubmit();
   function showOrHideResetButton() {
     const value = searchInput.value.trim();
     if (value) {
       if (!form.contains(resetSearchBtn)) {
         form.append(resetSearchBtn);
+        container.append(submitBtn)
         resetSearchBtn.addEventListener("click", function () {
           searchInput.value = '';
           searchInput.focus();
           if (resetSearchBtn) resetSearchBtn.remove();
+          if (submitBtn) submitBtn.remove();
           const results = document.querySelector('.search-results')
           if (results) results.remove();
         }, { once: true });
@@ -96,6 +115,7 @@ function resetSearch() {
     } else {
       if (form.contains(resetSearchBtn)) {
         resetSearchBtn.remove();
+        if (submitBtn) submitBtn.remove();
       }
     }
   }
