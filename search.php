@@ -19,7 +19,12 @@
       </div>
     </section>
   <?php else : ?>
-    <p>No results found. Try a different search term.</p>
+    <section class="no-results">
+      <div class="container">
+        <h1>No results found for: <?php echo get_search_query(); ?></h1>
+        <p>Try a different search term.</p>
+      </div>
+    </section>
   <?php endif; ?>
 </main>
 <?php get_template_part('/template-parts/newsletter'); ?>

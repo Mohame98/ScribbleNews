@@ -17,7 +17,11 @@
       </div>
     </section>
   <?php else : ?>
-  <p>No posts found in this category.</p>
+    <section>
+      <div class="container">
+        <p>No posts found in this category.</p>
+      </div>
+    </section>
   <?php endif; ?>
 </main>
 <?php get_template_part('/template-parts/newsletter'); ?>

@@ -68,6 +68,17 @@ function createsubmit(){
 }
 createsubmit();
 
+function createResetBtn(){
+  const resetSearchBtn = createNode("button", null, null, null, "reset-search-btn");
+  const xIcon = createNode("i", null, null, "fa-solid fa-xmark");
+  resetSearchBtn.append(xIcon);
+  resetSearchBtn.type = 'button'
+  resetSearchBtn.title ='Reset Search'
+  resetSearchBtn.setAttribute('aria-label', 'Reset Search');
+  return resetSearchBtn
+}
+createResetBtn()
+
 function createNode(type, text, parentNode, className, id, href) {
   let node = document.createElement(type);
   if (text) node.appendChild(document.createTextNode(text));
@@ -92,17 +103,15 @@ function resetSearch() {
   const container = document.querySelector('.search-modal form > div')
   if (!searchInput || !form) return;
 
-  const resetSearchBtn = createNode("i", null, null, "fa-solid fa-xmark");
-  resetSearchBtn.title ='Reset Search'
-  resetSearchBtn.setAttribute('aria-label', 'Reset Search');
-
+  const resetSearchBtn = createResetBtn();
   const submitBtn = createsubmit();
   function showOrHideResetButton() {
     const value = searchInput.value.trim();
     if (value) {
-      if (!form.contains(resetSearchBtn)) {
-        form.append(resetSearchBtn);
-        container.append(submitBtn)
+      if (!container.contains(resetSearchBtn)) {
+        container.append(submitBtn);
+        container.insertBefore(resetSearchBtn, submitBtn);
+    
         resetSearchBtn.addEventListener("click", function () {
           searchInput.value = '';
           searchInput.focus();
@@ -113,7 +122,7 @@ function resetSearch() {
         }, { once: true });
       }
     } else {
-      if (form.contains(resetSearchBtn)) {
+      if (container.contains(resetSearchBtn)) {
         resetSearchBtn.remove();
         if (submitBtn) submitBtn.remove();
       }

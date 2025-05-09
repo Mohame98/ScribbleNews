@@ -4,6 +4,7 @@ Template Name: About Page
 */
 get_template_part('template-parts/header'); ?>
 <?php if (have_posts()) : ?>
+<main>
   <section class="about">
     <div class="container">
       <?php while (have_posts()) : the_post(); ?>
@@ -21,7 +22,7 @@ get_template_part('template-parts/header'); ?>
             <?php endif; ?>
           </div>
         </section>
-
+                
         <div class="about-page-imgs">
           <?php if ($featured_image) : ?>
           <img class="img" src="<?php echo esc_url($featured_image); ?>" alt="Featured Image">
@@ -42,6 +43,7 @@ get_template_part('template-parts/header'); ?>
       <?php endwhile; ?>
     </div>
   </section>
+</main>
 <?php endif; ?>
 <?php get_template_part('/template-parts/newsletter'); ?> 
 <?php get_template_part('template-parts/footer'); ?>

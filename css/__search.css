@@ -1,20 +1,26 @@
-.search-results-posts{
-  padding: var(--space-xl) 0;
+.search-results-page{
+  .search-results-posts{
+    padding: var(--space-xl) 0;
 
-    h1{
-      font-size: var(--font-lg);
+      h1{
+        font-size: var(--font-lg);
 
-      span{
-        text-transform: capitalize;
+        span{
+          text-transform: capitalize;
+        }
       }
+
+    .grid{
+      display: grid;
+      grid-template-columns: 
+        repeat(auto-fit, minmax(300px, 3fr));
+      gap: var(--space-lg);
+
+      padding: var(--space-lg) 0;
     }
+  }
 
-  .grid{
-    display: grid;
-    grid-template-columns: 
-      repeat(auto-fit, minmax(300px, 3fr));
-    gap: var(--space-lg);
-
-    padding: var(--space-lg) 0;
+  .no-results{
+    padding: var(--space-xl) 0;
   }
 }
