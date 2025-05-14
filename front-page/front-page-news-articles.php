@@ -19,9 +19,7 @@
           <?php while($featuredNewsPosts->have_posts()) {
           $featuredNewsPosts->the_post();
           ?>
-          <div class="news-card">
           <?php get_template_part('template-parts/news-cards/news-cards'); ?>
-          </div>
           <?php } wp_reset_postdata(); ?>
         </div>
       </div>
@@ -43,9 +41,7 @@
           <?php while($recentNewsPosts->have_posts()) {
           $recentNewsPosts->the_post();
           ?>
-          <div class="news-card">
           <?php get_template_part('template-parts/news-cards/news-cards'); ?>
-          </div>
           <?php } ?>
         </div>
         <?php wp_reset_postdata(); ?>

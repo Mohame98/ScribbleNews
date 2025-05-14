@@ -4,10 +4,9 @@
         <abbr title="ScribbleNews">
           <a class="logo" href="<?php echo home_url(); ?>"><h1>Scribble</h1></a>
         </abbr>
-      
         <div class="footer-col-one">
           <h3>Pages</h3>
-          <nav>
+          <nav aria-label="Footer navigation column one">
             <?php 
               $rules = array(
                 'theme_location' => 'footer-menu-one',
@@ -18,7 +17,7 @@
           </nav>
         </div>
         <div class="footer-col-two">
-          <nav>
+          <nav aria-label="Footer navigation column two">
             <h3>Category</h3>
             <?php 
               $rules = array(

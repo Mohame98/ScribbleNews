@@ -12,7 +12,6 @@
     </div>
     <?php echo get_the_date('M j, Y'); ?>
   </div>
-
   <div class="card-content">
     <h3 class="title"><?php the_title(); ?></h3>
     <p class="post-description"><?php the_field('post_small_description'); ?></p>

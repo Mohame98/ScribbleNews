@@ -74,14 +74,11 @@ if ( have_posts() ) {
         <?php while($similarNewsPosts->have_posts()) {
         $similarNewsPosts->the_post();
         ?>
-        <div class="news-card">
         <?php get_template_part('template-parts/news-cards/news-cards'); ?>
-        </div>
         <?php } wp_reset_postdata(); ?>
       </div>
     </div>
   </section>
-
   <?php get_template_part('/template-parts/newsletter'); ?>
 </main>
 <?php

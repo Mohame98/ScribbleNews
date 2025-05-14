@@ -27,7 +27,7 @@
         <abbr title="ScribbleNews">
           <a class="logo" href="<?php echo home_url(); ?>"><h1>Scribble</h1></a>
         </abbr>
-        <nav class="wp-desktop-nav">
+        <nav class="wp-desktop-nav" aria-label="Desktop navigation">
           <?php 
             $rules = array(
               'theme_location' => 'header-menu-left',
@@ -39,11 +39,11 @@
       </div>
       <div class="right-side-navigation">
         <div class="search-container">
-          <button class="search-btn" title="Search" aria-label="Search">
+          <button class="search-btn" title="Search" aria-haspopup="Search Bar" aria-controls="search-modal" aria-expanded="false">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
     
-          <dialog class="search-modal">
+          <dialog id="search-modal" class="search-modal">
             <div class="modal-nested-wrapper">
             <?php get_search_form(); ?>
             </div>
@@ -58,10 +58,10 @@
             wp_nav_menu($rules);
           ?>
         </nav>
-          <button class="mobile-menu-btn" popovertarget="mobile-nav" popovertargetaction="toggle-mobile-nav" aria-label="menu" title="Menu">
+          <button class="mobile-menu-btn" popovertarget="mobile-nav" popovertargetaction="toggle-mobile-nav" aria-haspopup="Menu button" title="Menu Button" aria-expanded="false" aria-controls="mobile-nav">
             <i class="fa-solid fa-bars"></i>
           </button>
-          <nav class="mobile-nav popover" id="mobile-nav" popover>
+          <nav class="mobile-nav popover" id="mobile-nav" aria-label="Mobile navigation" popover>
             <div class="top-menu">
               <?php 
                 $rules = array(

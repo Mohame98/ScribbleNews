@@ -18,10 +18,13 @@ function handleModal(){
       requestAnimationFrame(() => {
         dialog.classList.add("show");
       });
+      modalBtn.setAttribute('aria-expanded', 'true');
+
     } else {
       document.body.classList.remove('no-scroll');
       dialog.classList.remove("show");
       modalWrapper.classList.remove("shake");
+      modalBtn.setAttribute('aria-expanded', 'false');
     }
   });
 }
@@ -73,8 +76,8 @@ function createResetBtn(){
   const xIcon = createNode("i", null, null, "fa-solid fa-xmark");
   resetSearchBtn.append(xIcon);
   resetSearchBtn.type = 'button'
-  resetSearchBtn.title ='Reset Search'
-  resetSearchBtn.setAttribute('aria-label', 'Reset Search');
+  resetSearchBtn.title ='Clear Search'
+  resetSearchBtn.setAttribute('aria-label', 'Clear Search');
   return resetSearchBtn
 }
 createResetBtn()
@@ -203,11 +206,21 @@ document.addEventListener('DOMContentLoaded', function () {
 function handleNav(){
   const blocker = document.querySelector('.blocker');
   const popover = document.querySelector(".popover");
+  const menuBtn = document.querySelector(".mobile-menu-btn");
+
   popover.addEventListener("toggle", (event) => {
     const isOpen = event.target.matches(":popover-open");
     isOpen
-    ? (document.body.classList.add('no-scroll'), blocker.style.display = 'block')
-    : (document.body.classList.remove('no-scroll'), blocker.style.display = 'none')
+    ? (
+        document.body.classList.add('no-scroll'), 
+        blocker.style.display = 'block',
+        menuBtn.setAttribute('aria-expanded', 'true')
+      )
+    : (
+        document.body.classList.remove('no-scroll'), 
+        blocker.style.display = 'none',
+        menuBtn.setAttribute('aria-expanded', 'false')
+      )
   });
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 800) popover.hidePopover();

@@ -23,9 +23,7 @@ get_template_part('template-parts/header');
           <?php while($allArticles->have_posts()) {
           $allArticles->the_post();
           ?>
-          <div class="news-card">
           <?php get_template_part('template-parts/news-cards/news-cards'); ?>
-          </div>
           <?php } ?>
         </div>
         <?php wp_reset_postdata(); ?>
